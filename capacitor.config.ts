@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.01f7ed956bd94fc6bff46c789cc30ad7',
+  appId: 'com.ashaway.buddy',
   appName: 'ashaway-buddy',
   webDir: 'dist',
   server: {
