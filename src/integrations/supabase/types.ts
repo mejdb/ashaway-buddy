@@ -14,7 +14,222 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      activities: {
+        Row: {
+          created_at: string
+          duration_seconds: number
+          id: string
+          type: Database["public"]["Enums"]["activity_type"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          duration_seconds: number
+          id?: string
+          type: Database["public"]["Enums"]["activity_type"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          duration_seconds?: number
+          id?: string
+          type?: Database["public"]["Enums"]["activity_type"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      badges: {
+        Row: {
+          awarded_at: string
+          description: string | null
+          id: string
+          key: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          awarded_at?: string
+          description?: string | null
+          id?: string
+          key: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          awarded_at?: string
+          description?: string | null
+          id?: string
+          key?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      checkins: {
+        Row: {
+          action: string | null
+          context: Json | null
+          created_at: string
+          id: string
+          mood: number
+          urge: number
+          user_id: string
+        }
+        Insert: {
+          action?: string | null
+          context?: Json | null
+          created_at?: string
+          id?: string
+          mood: number
+          urge: number
+          user_id: string
+        }
+        Update: {
+          action?: string | null
+          context?: Json | null
+          created_at?: string
+          id?: string
+          mood?: number
+          urge?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      cravings: {
+        Row: {
+          created_at: string
+          id: string
+          intensity: number
+          trigger: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          intensity: number
+          trigger: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          intensity?: number
+          trigger?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      device_subscriptions: {
+        Row: {
+          auth: string
+          created_at: string
+          endpoint: string
+          id: string
+          p256dh: string
+          user_id: string
+        }
+        Insert: {
+          auth: string
+          created_at?: string
+          endpoint: string
+          id?: string
+          p256dh: string
+          user_id: string
+        }
+        Update: {
+          auth?: string
+          created_at?: string
+          endpoint?: string
+          id?: string
+          p256dh?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["message_role"]
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["message_role"]
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["message_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      notification_windows: {
+        Row: {
+          created_at: string
+          end_time: string
+          id: string
+          is_active: boolean
+          label: Database["public"]["Enums"]["notification_window_label"]
+          start_time: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          end_time: string
+          id?: string
+          is_active?: boolean
+          label: Database["public"]["Enums"]["notification_window_label"]
+          start_time: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          end_time?: string
+          id?: string
+          is_active?: boolean
+          label?: Database["public"]["Enums"]["notification_window_label"]
+          start_time?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          cigs_per_day: number | null
+          created_at: string
+          language: string
+          quit_date: string | null
+          tone: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          cigs_per_day?: number | null
+          created_at?: string
+          language?: string
+          quit_date?: string | null
+          tone?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          cigs_per_day?: number | null
+          created_at?: string
+          language?: string
+          quit_date?: string | null
+          tone?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +238,10 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      activity_type: "breathing" | "urge_surf" | "walk" | "water" | "education"
+      app_role: "user" | "admin"
+      message_role: "user" | "assistant" | "system"
+      notification_window_label: "morning" | "midday" | "evening"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +368,11 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      activity_type: ["breathing", "urge_surf", "walk", "water", "education"],
+      app_role: ["user", "admin"],
+      message_role: ["user", "assistant", "system"],
+      notification_window_label: ["morning", "midday", "evening"],
+    },
   },
 } as const
