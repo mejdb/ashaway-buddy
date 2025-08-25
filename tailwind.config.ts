@@ -52,6 +52,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// AshAway custom colors
+				'ember-glow': 'hsl(var(--ember-glow))',
+				'mint-success': 'hsl(var(--mint-success))',
+				'charcoal-deep': 'hsl(var(--charcoal-deep))',
+				'charcoal-light': 'hsl(var(--charcoal-light))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
